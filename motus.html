@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOTUS — Le Jeu de Mots</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Particules de fond -->
+    <div class="bg-particles" id="bgParticles"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">
+                <span class="logo-m">M</span>
+                <span class="logo-o">O</span>
+                <span class="logo-t">T</span>
+                <span class="logo-u">U</span>
+                <span class="logo-s">S</span>
+            </div>
+            <nav class="nav-links">
+                <a href="motus.html" class="nav-link active">🎮 Jouer</a>
+                <a href="score.html" class="nav-link">🏆 Scores</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Game Container -->
+    <main class="game-container">
+
+        <!-- Tentatives restantes -->
+        <div class="attempts-bar">
+            <span class="attempts-label">Tentatives :</span>
+            <div class="attempts-dots" id="attemptsDots"></div>
+        </div>
+
+        <!-- Grille de jeu -->
+        <div class="grid-wrapper">
+            <div class="game-grid" id="gameGrid"></div>
+        </div>
+
+        <!-- Clavier -->
+        <div class="keyboard" id="keyboard"></div>
+
+        <!-- Message d'état -->
+        <div class="status-message" id="statusMessage"></div>
+
+        <!-- Bouton rejouer (caché au départ) -->
+        <button class="btn-restart hidden" id="btnRestart" onclick="Game.restart()">
+            🔄 Nouvelle partie
+        </button>
+
+        <!-- Bouton enregistrer score (caché au départ) -->
+        <div class="save-score-panel hidden" id="saveScorePanel">
+            <input type="text" id="playerName" placeholder="Ton prénom..." maxlength="20" class="name-input">
+            <button class="btn-save" onclick="Game.saveScore()">💾 Enregistrer mon score</button>
+        </div>
+
+    </main>
+
+    <!-- Modal victoire / défaite -->
+    <div class="modal-overlay hidden" id="modalOverlay">
+        <div class="modal" id="modal">
+            <div class="modal-icon" id="modalIcon"></div>
+            <h2 class="modal-title" id="modalTitle"></h2>
+            <p class="modal-text" id="modalText"></p>
+            <div class="modal-buttons">
+                <button class="btn-modal-primary" onclick="Game.restart()">🔄 Rejouer</button>
+                <a href="score.html" class="btn-modal-secondary">🏆 Voir les scores</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
